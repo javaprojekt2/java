@@ -1,0 +1,48 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: "jacoco"
+apply plugin: 'application'
+apply plugin: 'findbugs'
+mainClassName = "adminClient.AdminClient"
+//mainClassName = "clientFTP.ClientFTP"
+//mainClassName = "serverFTP.ServerFTP"
+repositories {
+mavenCentral()
+}
+jar {
+manifest {
+attributes("Implementation-Title": "panel administracyjny",
+"Implementation-Version": 1.0)
+attributes 'Main-Class': 'adminClient.AdminClient'
+//attributes 'Main-Class': 'clientFTP.ClientFTP'
+//attributes 'Main-Class': 'serverFTP.ServerFTP'
+}
+}
+dependencies {
+testCompile group: 'junit', name: 'junit', version: '4.+'
+compile( 'mysql:mysql-connector-java:5.1.13')
+}
+findbugs {
+ignoreFailures = true
+toolVersion = "2.0.1"
+sourceSets = [sourceSets.main]
+reportsDir = file("$project.buildDir/reports/findbugs")
+effort = "max"
+}
+tasks.withType(FindBugs) {
+reports {
+xml.enabled = false
+html.enabled = true
+}
+}
+jacoco {
+toolVersion = "0.7.2.201409121644"
+reportsDir = file("$buildDir/customJacocoReportDir")
+}
+jacocoTestReport {
+reports {
+xml.enabled false
+csv.enabled false
+html.destination "$buildDir/jacoco1"
+}
+}

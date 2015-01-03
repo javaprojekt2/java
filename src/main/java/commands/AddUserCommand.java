@@ -16,10 +16,13 @@ public class AddUserCommand implements Command{
 	
 	@Override
 	public boolean execute() throws SQLException{
-		
+		if (check()){
+			return false;
+		}
 		Random r = new Random();
 		int salt = r.nextInt(10000);
 		statement.executeUpdate("INSERT INTO `users`(`username`, `password`, `salt`) VALUES ('"+login+"',PASSWORD(CONCAT(PASSWORD('"+password+"'),'"+salt+"')),'"+salt+"')");
+		statement.executeUpdate("INSERT INTO `groups` (`group`) VALUES('"+login+"')");
 		AddUserToGroupCommand groupCommand = new AddUserToGroupCommand();
 		groupCommand.setLogin(login);
 		groupCommand.setGroupName(login);
@@ -36,14 +39,14 @@ public class AddUserCommand implements Command{
 	}
 	public boolean check() throws SQLException{	
 		boolean exist = false;
-		String data = "SELECT username,password FROM users";
+		String data = "SELECT username FROM users";
 		ResultSet res = statement.executeQuery(data);
 		while(res.next()){
 			String name = res.getString("username");
-			String pswd = res.getString("password");
-			if(login.equals(name)&&password.equals(pswd)){
+	
+			if(login.equals(name)){
 				exist = true;
-				//JOptionPane.showMessageDialog(null, "Username and Password exist");
+				//JOptionPane.showMessageDialog(this, "Username exists");
 			}
 			res.close();
 			return exist;

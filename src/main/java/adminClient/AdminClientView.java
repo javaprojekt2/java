@@ -4,26 +4,36 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+
 import java.awt.BorderLayout;
+
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+
 import java.awt.Color;
 import java.awt.TextField;
 import java.awt.Font;
+
 import javax.swing.JTextPane;
 import javax.swing.DropMode;
+
 import org.eclipse.wb.swing.FocusTraversalOnArray;
+
 import java.awt.Component;
+
+import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JButton;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class AdminClientView {
 
-	private JFrame frame;
+	public JFrame frame;
+	private AdminClientController controller;
 	private JTextField textField;
 	private JPasswordField passwordField;
 	private JTextField textField_1;
@@ -32,24 +42,14 @@ public class AdminClientView {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					AdminClientView window = new AdminClientView();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the application.
 	 */
-	public AdminClientView() {
+	public AdminClientView(AdminClientController controller) {
+		this.controller=controller;
 		initialize();
+		
 	}
 
 	/**
@@ -122,16 +122,31 @@ public class AdminClientView {
 		
 		JButton btnNewButton = new JButton("Zatwierdz u\u017Cytkownika");
 		btnNewButton.setBounds(123, 189, 171, 32);
+		btnNewButton.addActionListener(new java.awt.event.ActionListener() {
+	            public void actionPerformed(java.awt.event.ActionEvent evt) {
+	                przyciskZatwierdzUzytowknikaActionPerformed(evt);
+	            }
+
+				private void przyciskZatwierdzUzytowknikaActionPerformed(
+						ActionEvent evt) {
+					controller.addUser(textField.getText(), passwordField.getText());
+					
+				}
+	        });
 		frame.getContentPane().add(btnNewButton);
 		
+		
 		JButton btnNewButton_1 = new JButton("Dodaj u\u017Cytkownika do grupy");
-		btnNewButton_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		btnNewButton_1.setBounds(123, 376, 171, 38);
+		btnNewButton_1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                przyciskZatwierdzGrupeActionPerformed(evt);
+            } 
+			public void przyciskZatwierdzGrupeActionPerformed(ActionEvent evt) {
+				controller.addToGroup(textField.getText(), textField.getText());
 			}
 		});
-		btnNewButton_1.setBounds(123, 376, 171, 38);
 		frame.getContentPane().add(btnNewButton_1);
-		
 		
 	}
 }

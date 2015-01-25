@@ -1,34 +1,26 @@
 package adminClient;
 
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-
 import java.awt.BorderLayout;
-
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
-
 import java.awt.Color;
 import java.awt.TextField;
 import java.awt.Font;
-
 import javax.swing.JTextPane;
 import javax.swing.DropMode;
-
-import org.eclipse.wb.swing.FocusTraversalOnArray;
-
+//import org.eclipse.wb.swing.FocusTraversalOnArray;
 import java.awt.Component;
-
 import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JButton;
-
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+
 
 public class AdminClientView {
 
@@ -38,24 +30,21 @@ public class AdminClientView {
 	private JPasswordField passwordField;
 	private JTextField textField_1;
 	private JTextField textField_2;
-
-	/**
-	 * Launch the application.
-	 */
-
-	/**
-	 * Create the application.
-	 */
+/**
+* Launch the application.
+*/
+/**
+* Create the application.
+*/
 	public AdminClientView(AdminClientController controller) {
 		this.controller=controller;
 		initialize();
-		
 	}
-
-	/**
-	 * Initialize the contents of the frame.
-	 */
+/**
+* Initialize the contents of the frame.
+*/
 	private void initialize() {
+		
 		frame = new JFrame();
 		frame.getContentPane().setFont(new Font("Tahoma", Font.PLAIN, 20));
 		frame.setBounds(100, 100, 450, 485);
@@ -67,19 +56,19 @@ public class AdminClientView {
 		lblPanelAdministratora.setFont(new Font("Tahoma", Font.PLAIN, 24));
 		lblPanelAdministratora.setBounds(20, 11, 385, 50);
 		frame.getContentPane().add(lblPanelAdministratora);
-		
+			
 		JLabel lblNewLabel = new JLabel("Dodaj u\u017Cytkownika");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setBounds(108, 78, 205, 38);
 		frame.getContentPane().add(lblNewLabel);
-		
+			
 		JLabel lblNewLabel_1 = new JLabel("Login");
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblNewLabel_1.setBounds(105, 127, 33, 26);
 		frame.getContentPane().add(lblNewLabel_1);
-		
+			
 		textField = new JTextField();
 		textField.setBounds(162, 127, 100, 20);
 		frame.getContentPane().add(textField);
@@ -90,7 +79,7 @@ public class AdminClientView {
 		lblHaso.setHorizontalAlignment(SwingConstants.CENTER);
 		lblHaso.setBounds(91, 164, 60, 14);
 		frame.getContentPane().add(lblHaso);
-		
+			
 		passwordField = new JPasswordField();
 		passwordField.setBounds(162, 158, 100, 20);
 		frame.getContentPane().add(passwordField);
@@ -123,30 +112,31 @@ public class AdminClientView {
 		JButton btnNewButton = new JButton("Zatwierdz u\u017Cytkownika");
 		btnNewButton.setBounds(123, 189, 171, 32);
 		btnNewButton.addActionListener(new java.awt.event.ActionListener() {
-	            public void actionPerformed(java.awt.event.ActionEvent evt) {
-	                przyciskZatwierdzUzytowknikaActionPerformed(evt);
-	            }
-
-				private void przyciskZatwierdzUzytowknikaActionPerformed(
-						ActionEvent evt) {
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				przyciskZatwierdzUzytowknikaActionPerformed(evt);
+			}
+			
+				private void przyciskZatwierdzUzytowknikaActionPerformed(ActionEvent evt) {
 					controller.addUser(textField.getText(), passwordField.getText());
-					
 				}
-	        });
+			});
+		
 		frame.getContentPane().add(btnNewButton);
-		
-		
 		JButton btnNewButton_1 = new JButton("Dodaj u\u017Cytkownika do grupy");
 		btnNewButton_1.setBounds(123, 376, 171, 38);
 		btnNewButton_1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                przyciskZatwierdzGrupeActionPerformed(evt);
-            } 
-			public void przyciskZatwierdzGrupeActionPerformed(ActionEvent evt) {
-				controller.addToGroup(textField.getText(), textField.getText());
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				przyciskZatwierdzGrupeActionPerformed(evt);
 			}
-		});
+				public void przyciskZatwierdzGrupeActionPerformed(ActionEvent evt) {
+					controller.addToGroup(textField.getText(), textField.getText());
+				}
+			});
+		
 		frame.getContentPane().add(btnNewButton_1);
 		
+		JLabel lblNewLabel_2 = new JLabel("New label");
+		lblNewLabel_2.setBounds(168, 130, 46, 14);
+		frame.getContentPane().add(lblNewLabel_2);
 	}
 }

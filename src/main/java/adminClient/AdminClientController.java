@@ -1,10 +1,9 @@
 package adminClient;
+import adminClient.command.*;
+
 import java.sql.*;
 
 import javax.swing.JOptionPane;
-
-import commands.AddUserCommand;
-import commands.AddUserToGroupCommand;
 
 public class AdminClientController {
 
@@ -20,9 +19,10 @@ public class AdminClientController {
 			if (login.equals("") || password.equals("")){
 				JOptionPane.showMessageDialog(view.frame, "Wype³nij wszystkie pola.",
 					     "Uwaga", JOptionPane.WARNING_MESSAGE);
+				return;
 			}
 			try {
-				AddUserCommand newUser= new AddUserCommand();
+				AddUSERCommand newUser= new AddUSERCommand();
 				newUser.setLogin(login);
 				newUser.setPassword(password);
 				try {
@@ -49,6 +49,7 @@ public class AdminClientController {
 			if (login.equals("") || groupName.equals("")){
 				JOptionPane.showMessageDialog(view.frame, "Wype³nij wszystkie pola.",
 					     "Uwaga", JOptionPane.WARNING_MESSAGE);
+				return;
 			}
 			try{
 				AddUserToGroupCommand newGroup = new AddUserToGroupCommand();

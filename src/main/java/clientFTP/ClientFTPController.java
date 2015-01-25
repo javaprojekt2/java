@@ -1,34 +1,23 @@
 package clientFTP;
 
-import java.io.BufferedInputStream;
-import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.PrintWriter;
-import java.net.Inet4Address;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.net.SocketException;
-import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.StringTokenizer;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-import command.CommandInterface;
-import command.CommandInterpreter;
-import command.LISTCommandGUI;
-import command.NORMALCommand;
-import command.PASVCommandGUI;
-
+import command.client.CommandInterface;
+import command.client.CommandInterpreter;
+import command.client.LISTCommandGUI;
+import command.client.PASVCommandGUI;
 public class ClientFTPController {
 
 	private boolean isConnected = false;
@@ -42,8 +31,8 @@ public class ClientFTPController {
 	private BufferedReader connectionIn = null;// dawne in
 	private OutputStream dataOut = null;
 	private InputStream dataIn = null;
-	private ConslolePanel consolePanel;
-	private CommandTextArea commandArea;
+	private javax.swing.JLabel etykietaKonsola;//zmienna etykiety
+//	private CommandTextArea commandArea;
 	private List<String> List=null;
 	private String pwd;
 	private OknoAbor window;
@@ -109,23 +98,23 @@ public class ClientFTPController {
 
 	}
 
-	public ConslolePanel getConsolePanel() {
-		return consolePanel;
-	}
+//	public ConslolePanel getConsolePanel() {
+//		return consolePanel;
+//	}
 
-	public void setConsolePanel(ConslolePanel consolePanel) {
-		consolePanel.setController(this);
-		commandArea = consolePanel.getCommandArea();
-		this.consolePanel = consolePanel;
-		try {
-			consolePanel.putText(connectionIn.readLine());
-			consolePanel.putPrompt();
-		} catch (IOException e) {
-			JOptionPane.showMessageDialog(view, "Sesja wygas³a.",
-					"Uwaga", JOptionPane.WARNING_MESSAGE);
-			System.exit(0);
-		}
-	}
+//	public void setConsolePanel(ConslolePanel consolePanel) {
+//		consolePanel.setController(this);
+//		commandArea = consolePanel.getCommandArea();
+//		this.consolePanel = consolePanel;
+//		try {
+//			consolePanel.putText(connectionIn.readLine());
+//			consolePanel.putPrompt();
+//		} catch (IOException e) {
+//			JOptionPane.showMessageDialog(view, "Sesja wygas³a.",
+//					"Uwaga", JOptionPane.WARNING_MESSAGE);
+//			System.exit(0);
+//		}
+//	}
 
 	public void performAction(String line) {
 		CommandInterface command = getCommand(line);
@@ -218,7 +207,7 @@ public class ClientFTPController {
 				"PASS");
 
 		PassCommand.setQuestion("PASS " + password);
-		consolePanel.putText("USER " + login);
+		//consolePanel.putText("USER " + login);
 		try {
 			UserCommand.execute(this);
 		} catch (IOException e) {
@@ -248,7 +237,7 @@ public class ClientFTPController {
 		((ClientFTPView) view).setListModel();
 
 		//consolePanel.receiveResponse(PassCommand);
-		consolePanel.putPrompt();
+		//consolePanel.putPrompt();
 
 	}
 	
@@ -273,7 +262,7 @@ public class ClientFTPController {
 			e.printStackTrace();
 		}
 		((ClientFTPView) view).setListModel();
-		consolePanel.putPrompt();
+		//consolePanel.putPrompt();
 	}
 	
 	public void listGUI(){
@@ -331,7 +320,7 @@ public class ClientFTPController {
 			e.printStackTrace();
 		}
 		((ClientFTPView) view).setListModel();
-		consolePanel.putPrompt();
+		//consolePanel.putPrompt();
 	}
 	
 	public void quit(){
@@ -463,7 +452,7 @@ public class ClientFTPController {
 			System.out.println(i);
 		}
 		((ClientFTPView) view).setListModel();
-		consolePanel.putPrompt();
+		//consolePanel.putPrompt();
 	}
 
 	public void newDir(String dir) {
@@ -488,7 +477,7 @@ public class ClientFTPController {
 			e.printStackTrace();
 		}
 		((ClientFTPView) view).setListModel();
-		consolePanel.putPrompt();
+		//consolePanel.putPrompt();
 		
 	}
 
@@ -521,7 +510,7 @@ public class ClientFTPController {
 			e.printStackTrace();
 		}
 		((ClientFTPView) view).setListModel();*/
-		consolePanel.putPrompt();
+		//consolePanel.putPrompt();
 	
 		
 	}
@@ -562,7 +551,7 @@ public class ClientFTPController {
 		}
 		((ClientFTPView) view).setListModel();*/
 		
-		consolePanel.putPrompt();
+		//consolePanel.putPrompt();
 	}
 
 	public void abor() {
@@ -588,7 +577,7 @@ public class ClientFTPController {
 			e.printStackTrace();
 		}
 		((ClientFTPView) view).setListModel();*/
-		consolePanel.putPrompt();
+		//consolePanel.putPrompt();
 		
 	}
 	

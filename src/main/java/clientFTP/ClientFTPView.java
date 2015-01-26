@@ -12,11 +12,14 @@ import java.io.File;
 
 import javax.swing.DefaultListModel;
 import javax.swing.DropMode;
+import javax.swing.GroupLayout;
 import javax.swing.JFileChooser;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.ListSelectionModel;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.border.EmptyBorder;
 
 /**
@@ -45,22 +48,22 @@ public class ClientFTPView extends javax.swing.JFrame implements WindowListener 
    // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
    private void initComponents() {
 
-       panelGlowny = new javax.swing.JPanel();//done
-       panelLogowania = new javax.swing.JPanel();//done
-       tekstLogin = new javax.swing.JTextField();//done
-       przysciskZaloguj = new javax.swing.JButton();//done
-       etykietaLogin = new javax.swing.JLabel();//done
-       etykietaHaslo = new javax.swing.JLabel();//done
-       tekstHaslo = new javax.swing.JPasswordField();//done
-       tekstKomenda = new javax.swing.JTextField();
-       pWyslij = new javax.swing.JButton();
-       etykietaKonsola = new javax.swing.JLabel();
-       panelOpcje = new javax.swing.JPanel();//done
-       przyciskGet = new javax.swing.JButton();//D
-       przyciskPut = new javax.swing.JButton();//D
-       przyciskDir = new javax.swing.JButton();//d
-       przyciskList = new javax.swing.JButton();
-       przyciskPwd = new javax.swing.JButton();//d
+       panelGlowny = new javax.swing.JPanel();//same
+       panelLogowania = new javax.swing.JPanel();//same
+       tekstLogin = new javax.swing.JTextField();//loginTekst
+       przysciskZaloguj = new javax.swing.JButton();//same
+       etykietaLogin = new javax.swing.JLabel();//login
+       etykietaHaslo = new javax.swing.JLabel();//haslo
+       tekstHaslo = new javax.swing.JPasswordField();//hasloTekst
+       tekstKomenda = new javax.swing.JTextField();//JScrollPane4
+       pWyslij = new javax.swing.JButton();//
+       etykietaKonsola = new javax.swing.JLabel();//oknoKonsola
+       panelOpcje = new javax.swing.JPanel();//same
+       przyciskGet = new javax.swing.JButton();//same
+       przyciskPut = new javax.swing.JButton();//same
+       przyciskDir = new javax.swing.JButton();//same
+       //przyciskList = new javax.swing.JButton();//wywalic
+       przyciskPwd = new javax.swing.JButton();//same
        
        ListTransferHandler arrayListHandler =
                new ListTransferHandler(controller);
@@ -192,38 +195,29 @@ public class ClientFTPView extends javax.swing.JFrame implements WindowListener 
        panelLogowaniaLayout.setHorizontalGroup(
            panelLogowaniaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
            .addGroup(panelLogowaniaLayout.createSequentialGroup()
-               .addGap(36, 36, 36)
-               .addGroup(panelLogowaniaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                   .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLogowaniaLayout.createSequentialGroup()
-                       .addComponent(etykietaLogin)
-                       .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
-                   .addGroup(panelLogowaniaLayout.createSequentialGroup()
-                       .addComponent(etykietaHaslo)
-                       .addGap(0, 0, 0)))
-               .addGroup(panelLogowaniaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                   .addComponent(tekstLogin, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
-                   .addComponent(tekstHaslo))
-               .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+               .addContainerGap()
+               .addComponent(etykietaLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+               .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+               .addComponent(tekstLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+               .addGap(18, 18, 18)
+               .addComponent(etykietaHaslo, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+               .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+               .addComponent(tekstHaslo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+               .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
                .addComponent(przysciskZaloguj)
-               .addGap(27, 27, 27))
+               .addContainerGap())
        );
        panelLogowaniaLayout.setVerticalGroup(
            panelLogowaniaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
            .addGroup(panelLogowaniaLayout.createSequentialGroup()
-               .addGroup(panelLogowaniaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                   .addGroup(panelLogowaniaLayout.createSequentialGroup()
-                       .addContainerGap()
-                       .addGroup(panelLogowaniaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                           .addComponent(tekstLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                           .addComponent(etykietaLogin))
-                       .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                       .addGroup(panelLogowaniaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                           .addComponent(etykietaHaslo)
-                           .addComponent(tekstHaslo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                   .addGroup(panelLogowaniaLayout.createSequentialGroup()
-                       .addGap(21, 21, 21)
-                       .addComponent(przysciskZaloguj)))
-               .addContainerGap(17, Short.MAX_VALUE))
+               .addGap(26, 26, 26)
+               .addGroup(panelLogowaniaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                   .addComponent(etykietaLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                   .addComponent(tekstLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                   .addComponent(etykietaHaslo, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                   .addComponent(tekstHaslo, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                   .addComponent(przysciskZaloguj))
+               .addContainerGap(26, Short.MAX_VALUE))
        );
       
       
@@ -278,34 +272,32 @@ public class ClientFTPView extends javax.swing.JFrame implements WindowListener 
        });
 
        javax.swing.GroupLayout panelOpcjeLayout = new javax.swing.GroupLayout(panelOpcje);
-       panelOpcje.setLayout(panelOpcjeLayout);
        panelOpcjeLayout.setHorizontalGroup(
-           panelOpcjeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-           .addGroup(panelOpcjeLayout.createSequentialGroup()
-               .addContainerGap()
-               .addComponent(przyciskGet)
-               .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-               .addComponent(przyciskPut)
-               .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-               .addComponent(przyciskDir)
-               .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-               .addComponent(przyciskList)
-               .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-               .addComponent(przyciskPwd)
-               .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+       	panelOpcjeLayout.createParallelGroup(Alignment.LEADING)
+       		.addGroup(Alignment.TRAILING, panelOpcjeLayout.createSequentialGroup()
+       			.addContainerGap()
+       			.addComponent(przyciskGet, GroupLayout.DEFAULT_SIZE, 78, Short.MAX_VALUE)
+       			.addGap(18)
+       			.addComponent(przyciskPut, GroupLayout.PREFERRED_SIZE, 75, GroupLayout.PREFERRED_SIZE)
+       			.addGap(18)
+       			.addComponent(przyciskDir, GroupLayout.PREFERRED_SIZE, 73, GroupLayout.PREFERRED_SIZE)
+       			.addGap(18)
+       			.addComponent(przyciskPwd, GroupLayout.PREFERRED_SIZE, 70, GroupLayout.PREFERRED_SIZE)
+       			.addGap(19))
        );
        panelOpcjeLayout.setVerticalGroup(
-           panelOpcjeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-           .addGroup(panelOpcjeLayout.createSequentialGroup()
-               .addGap(21, 21, 21)
-               .addGroup(panelOpcjeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                   .addComponent(przyciskGet)
-                   .addComponent(przyciskPut)
-                   .addComponent(przyciskDir)
-                   .addComponent(przyciskList)
-                   .addComponent(przyciskPwd))
-               .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+       	panelOpcjeLayout.createParallelGroup(Alignment.LEADING)
+       		.addGroup(Alignment.TRAILING, panelOpcjeLayout.createSequentialGroup()
+       			.addContainerGap(32, Short.MAX_VALUE)
+       			.addGroup(panelOpcjeLayout.createParallelGroup(Alignment.BASELINE)
+       				.addComponent(przyciskPwd)
+       				.addComponent(przyciskDir)
+       				.addComponent(przyciskPut)
+       				.addComponent(przyciskGet))
+       			.addGap(23))
        );
+       panelOpcje.setLayout(panelOpcjeLayout);
+
 
        listaFolderySerwer.setModel(new javax.swing.AbstractListModel() {
            String[] strings = controller.getList();
@@ -315,37 +307,45 @@ public class ClientFTPView extends javax.swing.JFrame implements WindowListener 
        jScrollPane2.setViewportView(listaFolderySerwer);
 
        javax.swing.GroupLayout panelGlownyLayout = new javax.swing.GroupLayout(panelGlowny);
-       panelGlowny.setLayout(panelGlownyLayout);
        panelGlownyLayout.setHorizontalGroup(
-           panelGlownyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-           .addGroup(panelGlownyLayout.createSequentialGroup()
-               .addContainerGap()
-               .addGroup(panelGlownyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                   .addComponent(panelKonsola, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                   .addComponent(panelLogowania, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-               .addGap(18, 18, 18)
-               .addGroup(panelGlownyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                   .addComponent(panelOpcje, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                   .addComponent(panelSuwakFolderyClient))
-               .addGap(34, 34, 34)
-               .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
-               .addContainerGap(48, Short.MAX_VALUE))
+       	panelGlownyLayout.createParallelGroup(Alignment.TRAILING)
+       		.addGroup(panelGlownyLayout.createSequentialGroup()
+       			.addContainerGap()
+       			.addGroup(panelGlownyLayout.createParallelGroup(Alignment.TRAILING)
+       				.addGroup(panelGlownyLayout.createSequentialGroup()
+       					.addGap(27)
+       					.addComponent(tekstKomenda, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+       					.addPreferredGap(ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
+       					.addComponent(etykietaKonsola, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+       				.addGroup(panelGlownyLayout.createSequentialGroup()
+       					.addComponent(panelLogowania, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+       					.addPreferredGap(ComponentPlacement.RELATED)
+       					.addComponent(panelOpcje, GroupLayout.DEFAULT_SIZE, 379, Short.MAX_VALUE))
+       				.addGroup(panelGlownyLayout.createSequentialGroup()
+       					.addComponent(panelSuwakFolderyClient, GroupLayout.PREFERRED_SIZE, 346, GroupLayout.PREFERRED_SIZE)
+       					.addGap(52)
+       					.addComponent(jScrollPane2, GroupLayout.PREFERRED_SIZE, 379, GroupLayout.PREFERRED_SIZE)
+       					.addGap(8)))
+       			.addGap(30))
        );
        panelGlownyLayout.setVerticalGroup(
-           panelGlownyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-           .addGroup(panelGlownyLayout.createSequentialGroup()
-               .addContainerGap()
-               .addGroup(panelGlownyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                   .addComponent(panelLogowania, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                   .addComponent(panelOpcje, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-               .addGap(18, 18, 18)
-               .addGroup(panelGlownyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                   .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 345, Short.MAX_VALUE)
-                   .addGroup(panelGlownyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                       .addComponent(panelKonsola, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                       .addComponent(panelSuwakFolderyClient, javax.swing.GroupLayout.DEFAULT_SIZE, 345, Short.MAX_VALUE)))
-               .addContainerGap(48, Short.MAX_VALUE))
+       	panelGlownyLayout.createParallelGroup(Alignment.LEADING)
+       		.addGroup(panelGlownyLayout.createSequentialGroup()
+       			.addContainerGap()
+       			.addGroup(panelGlownyLayout.createParallelGroup(Alignment.LEADING)
+       				.addComponent(panelOpcje, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+       				.addComponent(panelLogowania, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+       			.addPreferredGap(ComponentPlacement.RELATED)
+       			.addGroup(panelGlownyLayout.createParallelGroup(Alignment.LEADING)
+       				.addComponent(panelSuwakFolderyClient, GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
+       				.addComponent(jScrollPane2, GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE))
+       			.addGap(18)
+       			.addGroup(panelGlownyLayout.createParallelGroup(Alignment.LEADING)
+       				.addComponent(etykietaKonsola, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+       				.addComponent(tekstKomenda, GroupLayout.PREFERRED_SIZE, 135, GroupLayout.PREFERRED_SIZE))
+       			.addGap(20))
        );
+       panelGlowny.setLayout(panelGlownyLayout);
 
        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
        getContentPane().setLayout(layout);
